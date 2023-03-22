@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/gitpod" mode="merge"/>
+    <filter root="/content/gitpod" mode="merge"/>
+    <filter root="/content/dam/gitpod" mode="merge">
+        <exclude pattern="/content/dam/gitpod(/.*)?"/>
+        <include pattern="/content/dam/gitpod/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/gitpod/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/gitpod" mode="merge"/>
+</workspaceFilter>
