@@ -1,2 +1,7 @@
 image:
   file: .gitpod.Dockerfile
+
+jetbrains:
+  intellij:
+    prebuilds:
+      version: stable
