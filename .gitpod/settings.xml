@@ -1,0 +1,150 @@
+<settings>
+    <localRepository>/workspace/m2-repository/</localRepository>
+
+    <servers>
+        <server>
+            <id>amplexor</id>
+            <username>${env.AMPLEXOR_AD_USER}</username>
+            <password>${env.AMPLEXOR_AD_PASSWORD}</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>amplexor</id>
+            <url>https://nexus.amplexor.com/content/groups/public</url>
+            <mirrorOf>amplexor,central</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>amplexor.repository.release</id>
+            <repositories>
+                <repository>
+                    <id>amplexor</id>
+                    <name>Amplexor Releases</name>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <url>https://nexus.amplexor.com/content/repositories/releases</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>amplexor.repository.3rdparty</id>
+            <repositories>
+                <repository>
+                    <id>amplexor</id>
+                    <name>3rd Party Repository</name>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <url>https://nexus.amplexor.com/content/repositories/3rdparty</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>amplexor.repository.snapshot</id>
+            <repositories>
+                <repository>
+                    <id>amplexor</id>
+                    <name>Amplexor Snapshot</name>
+                    <releases>
+                        <enabled>false</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <url>https://nexus.amplexor.com/content/repositories/snapshots</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>amplexor.repository.replica</id>
+            <repositories>
+                <repository>
+                    <id>amplexor</id>
+                    <name>Amplexor Replica</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <url>https://nexus.amplexor.com/content/groups/public</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>amplexor.pluginrepository.release</id>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>amplexor</id>
+                    <name>Maven Plugin Repository Release</name>
+                    <url>https://nexus.amplexor.com/content/repositories/releases</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <profile>
+            <id>amplexor.pluginrepository.snapshot</id>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>amplexor</id>
+                    <name>Maven Plugin Repository Snapshot</name>
+                    <url>https://nexus.amplexor.com/content/repositories/snapshots</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>amplexor.repository.replica</activeProfile>
+        <activeProfile>amplexor.repository.release</activeProfile>
+        <activeProfile>amplexor.repository.snapshot</activeProfile>
+        <activeProfile>amplexor.repository.3rdparty</activeProfile>
+        <activeProfile>amplexor.pluginrepository.release</activeProfile>
+        <activeProfile>amplexor.pluginrepository.snapshot</activeProfile>
+    </activeProfiles>
+</settings>
