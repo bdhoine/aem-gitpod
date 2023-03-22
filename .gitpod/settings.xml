@@ -4,7 +4,7 @@
     <servers>
         <server>
             <id>amplexor</id>
-            <username>${env.AMPLEXOR_AD_USER}</username>
+            <username>${env.AMPLEXOR_AD_USERNAME}</username>
             <password>${env.AMPLEXOR_AD_PASSWORD}</password>
         </server>
     </servers>
