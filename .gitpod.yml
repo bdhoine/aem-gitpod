@@ -1,7 +1,22 @@
 image:
   file: .gitpod.Dockerfile
 
-jetbrains:
-  intellij:
-    prebuilds:
-      version: stable
+ports:
+  - name: AEM Author
+    description: AEM Author Web Interface
+    port: 4502
+  - name: AEM Author Debug
+    description: AEM Author JVM Debug Port
+    port: 5005
+
+tasks:
+  - name: AEM Author
+    init: |
+      mvn clean install
+      mvn dependency:get -Dartifact=com.adobe.aem:aem-sdk:2023.3.11382.20230315T073850Z-230100:zip
+      mkdir /workspace/aem-sdk
+      mvn dependency:copy -Dartifact=com.adobe.aem:aem-sdk:2023.3.11382.20230315T073850Z-230100:zip -DoutputDirectory="/workspace/aem-sdk"
+      cd /workspace/aem-sdk
+      unzip -o aem-sdk-*.zip && rm aem-sdk-*.zip
+    command: |
+      CQ_JVM_OPTS='-server -Xmx2048m -Djava.awt.headless=true' java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 /workspace/aem-sdk/aem-sdk-quickstart-*.jar -nointeractive -r local,author
