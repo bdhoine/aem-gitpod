@@ -25,9 +25,9 @@
       
   <version>1.0.0-SNAPSHOT</version>
       
-  <name>GitPod</name>
+  <name>Gitpod</name>
       
-  <description>GitPod</description>
+  <description>Gitpod</description>
       
   <modules>
             
@@ -85,7 +85,7 @@
             
     <aemanalyser.version>1.4.10</aemanalyser.version>
             
-    <componentGroupName>GitPod</componentGroupName>
+    <componentGroupName>Gitpod</componentGroupName>
         
   </properties>
       
